@@ -1,0 +1,14 @@
+--- origsrc/strigi-0.6.3/src/daemon/CMakeLists.txt	2009-01-12 15:50:14.000000000 -0600
++++ src/strigi-0.6.3/src/daemon/CMakeLists.txt	2009-01-15 12:37:57.135313900 -0600
+@@ -78,10 +78,10 @@ ENDIF (CMAKE_LIB_SOCKET_HAS_CONNECT)
+ set(strigidaemon_LIBS
+ 	combinedindex
+ 	eventlistener
+-	streamanalyzer
+ 	xesam
+ 	${CMAKE_THREAD_LIBS_INIT}
+ 	${strigidaemon_LIBS}
++	streamanalyzer
+ )
+ target_link_libraries(strigidaemon ${strigidaemon_LIBS} daemonconfigurator)
+ 

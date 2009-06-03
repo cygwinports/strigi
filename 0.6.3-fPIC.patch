@@ -1,0 +1,17 @@
+--- origsrc/strigi-0.6.3/CMakeLists.txt	2009-01-12 15:50:22.000000000 -0600
++++ src/strigi-0.6.3/CMakeLists.txt	2009-01-15 02:13:00.671500000 -0600
+@@ -67,11 +67,11 @@ if(MSVC)
+     add_definitions(-wd4786) # identifier was truncated to '255' characters in the debug information
+ else(MSVC)
+     if (NOT WIN32)
+-       if(NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")     # I suppose even GCC on SunOS doesn't like -fPIC
++       if(NOT CMAKE_SYSTEM MATCHES "SunOS-5*.|CYGWIN")     # I suppose even GCC on SunOS doesn't like -fPIC
+           add_definitions(-fPIC)
+-       endif(NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
++       endif(NOT CMAKE_SYSTEM MATCHES "SunOS-5*.|CYGWIN")
+        if (CMAKE_COMPILER_IS_GNUCXX)
+-          set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor -Wno-long-long -ansi -Wundef -Wcast-align -Wchar-subscripts -Wall -W -Wpointer-arith -Wformat-security -fno-check-new -fno-common -fexceptions -Wno-unused-parameter")
++          set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor -Wno-long-long -Wundef -Wcast-align -Wchar-subscripts -Wall -W -Wpointer-arith -Wformat-security -fno-check-new -fno-common -fexceptions -Wno-unused-parameter")
+        endif(CMAKE_COMPILER_IS_GNUCXX)
+     endif (NOT WIN32)
+ endif(MSVC)

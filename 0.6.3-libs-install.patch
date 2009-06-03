@@ -1,0 +1,39 @@
+--- origsrc/strigi-0.6.3/src/daemon/CMakeLists.txt	2009-01-12 15:50:14.000000000 -0600
++++ src/strigi-0.6.3/src/daemon/CMakeLists.txt	2009-01-15 12:37:57.135313900 -0600
+@@ -102,6 +102,7 @@ ENDIF(CMAKE_LIB_SOCKET_HAS_CONNECT)
+ 
+ install(TARGETS strigidaemon searchclient #strigiconfupdater
+ 	RUNTIME DESTINATION bin
++	ARCHIVE DESTINATION ${LIB_DESTINATION}
+ 	LIBRARY DESTINATION ${LIB_DESTINATION})
+ install(FILES asyncsocketclient.h asyncsocket.h clientinterface.h
+ 	DESTINATION include/strigi)
+--- origsrc/strigi-0.6.3/src/htmlgui/CMakeLists.txt	2009-01-12 15:50:15.000000000 -0600
++++ src/strigi-0.6.3/src/htmlgui/CMakeLists.txt	2009-01-15 12:33:10.229063900 -0600
+@@ -10,6 +10,10 @@ set_target_properties(strigihtmlgui PROP
+ 
+ target_link_libraries(strigihtmlgui searchclient streamanalyzer)
+ 
+-install(TARGETS strigihtmlgui DESTINATION ${LIB_DESTINATION})
++install(TARGETS strigihtmlgui
++    LIBRARY DESTINATION ${LIB_DESTINATION}
++    RUNTIME DESTINATION bin
++    ARCHIVE DESTINATION ${LIB_DESTINATION}
++)
+ install(FILES strigihtmlgui.h
+ 	DESTINATION include/strigi)
+--- origsrc/strigi-0.6.3/src/searchclient/qtdbus/CMakeLists.txt	2009-01-12 15:50:15.000000000 -0600
++++ src/strigi-0.6.3/src/searchclient/qtdbus/CMakeLists.txt	2009-01-15 12:32:48.354063900 -0600
+@@ -27,7 +27,11 @@ set_target_properties(strigiqtdbusclient
+                  DEFINE_SYMBOL MAKE_STRIGI_QTDBUSCLIENT_LIB
+ )
+ 
+-install(TARGETS strigiqtdbusclient LIBRARY DESTINATION ${LIB_DESTINATION})
++install(TARGETS strigiqtdbusclient
++	LIBRARY DESTINATION ${LIB_DESTINATION}
++	RUNTIME DESTINATION bin
++	ARCHIVE DESTINATION ${LIB_DESTINATION}
++)
+ install(FILES strigiasyncclient.h strigiclient.h strigidbus.h strigitypes.h
+   DESTINATION include/strigi/qtdbus)
+ 

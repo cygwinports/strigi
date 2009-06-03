@@ -1,0 +1,8 @@
+category: KDE Utils
+requires: cygwin libgcc1 libQtCore4 libQtGui4 libstdc++6 libstrigihtmlgui0 libstrigiqtdbus0
+external-source: strigi
+sdesc: "Desktop search engine (Qt4 client)"
+ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 
+that can index data on your harddrive. Indexing operations are performed 
+without hammering your system, this makes Strigi the fastest and 
+smallest desktop searching program."
