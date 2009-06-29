@@ -1,5 +1,5 @@
 category: KDE
-requires: cygwin libgcc1 libQtCore4 libQtDbus4 libstdc++6 strigi-daemon
+requires: libgcc1 libQtCore4 libQtDbus4 libstdc++6 strigi-daemon
 external-source: strigi
 sdesc: "Strigi QtDBus client library (runtime)"
 ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 

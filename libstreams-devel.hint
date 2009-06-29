@@ -1,5 +1,5 @@
 category: Libs
-requires: cygwin libiconv libstdc++6-devel libstreams0
+requires: libiconv libstdc++6-devel libstreams0
 external-source: strigi
 sdesc: "Strigi streams library (development)"
 ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 

@@ -1,5 +1,5 @@
 category: Libs
-requires: cygwin libgcc1 libstdc++6
+requires: libgcc1 libstdc++6
 external-source: strigi
 sdesc: "Strigi search client library (runtime)"
 ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 

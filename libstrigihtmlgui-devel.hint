@@ -1,5 +1,5 @@
 category: Libs
-requires: cygwin libsearchclient-devel libstdc++6-devel libstreamanalyzer-devel libstrigihtmlgui0
+requires: libsearchclient-devel libstdc++6-devel libstreamanalyzer-devel libstrigihtmlgui0
 external-source: strigi
 sdesc: "Strigi HTML GUI library (development)"
 ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 
