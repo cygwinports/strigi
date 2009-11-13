@@ -10,7 +10,6 @@ PATCH_URI="
 	0.6.3-libs-install.patch
 	0.6.3-dllext.patch
 	0.6.3-misc.patch
-	0.6.3-std-wstring.patch
 "
 
 PKG_NAMES="${PN} ${PN}-client ${PN}-daemon"
