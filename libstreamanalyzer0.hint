@@ -1,5 +1,5 @@
 category: Libs
-requires: libgcc1 libiconv2 libstdc++6 libstreams0 libxml2 libclucene3 libexiv2_5 zlib0
+requires: libgcc1 libiconv2 libstdc++6 libstreams0 libxml2 libclucene3 libexiv2_6 zlib0
 external-source: strigi
 sdesc: "Strigi stream analyzer library (runtime)"
 ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 

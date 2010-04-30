@@ -6,29 +6,29 @@ hammering your system, this makes Strigi the fastest and smallest
 desktop searching program.
 
 Runtime requirements:
-  cygwin-1.7.0-62
+  cygwin-1.7.5-1
   libbz2_1-1.0.5-10
   libclucene3-0.9.21b-10
   libdbus1_3-1.2.16-1
-  libexiv2_5-0.18.1-1
+  libexiv2_6-0.19-1
   libfam0-0.1.10-10
-  libgcc1-4.3.4-1
-  libiconv2-1.13-10
+  libgcc1-4.3.4-3
+  libiconv2-1.13.1-1
   liblog4cxx10-0.10.0-10
-  libQtCore4-4.5.2-1
-  libQtDBus4-4.5.2-1
-  libQtGui4-4.5.2-1
-  libstdc++6-4.3.4-1
-  libxml2-2.7.4-1
+  libQtCore4-4.6.2-1
+  libQtDBus4-4.6.2-1
+  libQtGui4-4.6.2-1
+  libstdc++6-4.3.4-3
+  libxml2-2.7.6-1
   zlib0-1.2.3-10
 
 Build requirements:
 (besides corresponding -devel packages)
-  binutils-2.19.51-1
-  cmake-2.6.4-10
-  cygport-0.9.10-1
-  gcc4-core-4.3.4-1
-  gcc4-g++-4.3.4-1
+  binutils-2.20.51-1
+  cmake-2.8.0-11
+  cygport-0.9.83-1
+  gcc4-core-4.3.4-3
+  gcc4-g++-4.3.4-3
   make-3.81-2
   pkg-config-0.23b-10
 
@@ -41,31 +41,34 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack strigi-0.7.0-X-src.tar.bz2
+  unpack strigi-0.7.2-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./strigi-0.7.0-X.cygport all
+  cygport ./strigi-0.7.2-X.cygport all
 
 This will create:
-  /usr/src/libsearchclient-devel-0.7.0-X.tar.bz2
-  /usr/src/libsearchclient0-0.7.0-X.tar.bz2
-  /usr/src/libstreamanalyzer-devel-0.7.0-X.tar.bz2
-  /usr/src/libstreamanalyzer0-0.7.0-X.tar.bz2
-  /usr/src/libstreams-devel-0.7.0-X.tar.bz2
-  /usr/src/libstreams0-0.7.0-X.tar.bz2
-  /usr/src/libstrigihtmlgui-devel-0.7.0-X.tar.bz2
-  /usr/src/libstrigihtmlgui0-0.7.0-X.tar.bz2
-  /usr/src/libstrigiqtdbusclient-devel-0.7.0-X.tar.bz2
-  /usr/src/libstrigiqtdbusclient0-0.7.0-X.tar.bz2
-  /usr/src/strigi-0.7.0-X-src.tar.bz2
-  /usr/src/strigi-0.7.0-X.tar.bz2
-  /usr/src/strigi-client-0.7.0-X.tar.bz2
-  /usr/src/strigi-daemon-0.7.0-X.tar.bz2
+  /usr/src/libsearchclient-devel-0.7.2-X.tar.bz2
+  /usr/src/libsearchclient0-0.7.2-X.tar.bz2
+  /usr/src/libstreamanalyzer-devel-0.7.2-X.tar.bz2
+  /usr/src/libstreamanalyzer0-0.7.2-X.tar.bz2
+  /usr/src/libstreams-devel-0.7.2-X.tar.bz2
+  /usr/src/libstreams0-0.7.2-X.tar.bz2
+  /usr/src/libstrigihtmlgui-devel-0.7.2-X.tar.bz2
+  /usr/src/libstrigihtmlgui0-0.7.2-X.tar.bz2
+  /usr/src/libstrigiqtdbusclient-devel-0.7.2-X.tar.bz2
+  /usr/src/libstrigiqtdbusclient0-0.7.2-X.tar.bz2
+  /usr/src/strigi-0.7.2-X-src.tar.bz2
+  /usr/src/strigi-0.7.2-X.tar.bz2
+  /usr/src/strigi-client-0.7.2-X.tar.bz2
+  /usr/src/strigi-daemon-0.7.2-X.tar.bz2
 
 -------------------------------------------
 
 Port Notes:
+
+----- version 0.7.2-1 -----
+Version bump.
 
 ----- version 0.7.0-1 -----
 Version bump.

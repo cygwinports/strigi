@@ -7,7 +7,7 @@ PATCH_URI="
 	0.6.3-no-windows.patch
 	0.6.3-fPIC.patch
 	0.6.3-as-needed.patch
-	0.6.3-libs-install.patch
+	0.7.2-libs-install.patch
 	0.6.3-dllext.patch
 	0.6.3-misc.patch
 "
