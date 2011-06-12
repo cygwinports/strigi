@@ -1,0 +1,35 @@
+--- origsrc/strigi-0.7.5/libstreamanalyzer/lib/CMakeLists.txt	2011-06-02 04:29:26.000000000 -0500
++++ src/strigi-0.7.5/libstreamanalyzer/lib/CMakeLists.txt	2011-06-12 04:43:03.968129700 -0500
+@@ -83,7 +83,8 @@ set_target_properties(streamanalyzer PRO
+ 	SOVERSION ${LIBSTREAMANALYZER_SOVERSION}
+ 	DEFINE_SYMBOL MAKE_STREAMANALYZER_LIB
+ )
+-target_link_libraries(streamanalyzer streamanalyzerstatic)
++target_link_libraries(streamanalyzer ${streamanalyzer_libs}
++	${CMAKE_THREAD_LIBS_INIT})
+ 
+ install(TARGETS streamanalyzer
+ 	LIBRARY DESTINATION ${LIB_DESTINATION}
+--- origsrc/strigi-0.7.5/strigiclient/lib/searchclient/CMakeLists.txt	2011-04-23 06:37:30.000000000 -0500
++++ src/strigi-0.7.5/strigiclient/lib/searchclient/CMakeLists.txt	2011-06-12 04:23:14.380058800 -0500
+@@ -29,7 +29,7 @@ qt4_wrap_cpp(strigiclient_MOC_SRCS ${str
+ 
+ add_executable(strigiclient ${strigiclient_SRCS} ${strigiclient_MOC_SRCS})
+ 
+-target_link_libraries(strigiclient strigiqtdbusclient strigihtmlgui filterwidget)
++target_link_libraries(strigiclient filterwidget strigiqtdbusclient strigihtmlgui)
+ 
+ add_executable(cmdlinestrigi cmdlinestrigi.cpp)
+ target_link_libraries(cmdlinestrigi searchclient)
+--- origsrc/strigi-0.7.5/strigidaemon/bin/daemon/CMakeLists.txt	2011-04-23 06:55:09.000000000 -0500
++++ src/strigi-0.7.5/strigidaemon/bin/daemon/CMakeLists.txt	2011-06-12 04:28:44.016632500 -0500
+@@ -24,7 +24,7 @@ set(strigidaemon_LIBS
+ if(ENABLE_DBUS)
+   add_definitions(-DHAVE_DBUS)
+   add_subdirectory(dbus)
+-  set(strigidaemon_LIBS ${strigidaemon_LIBS} dbusserver)
++  set(strigidaemon_LIBS dbusserver ${strigidaemon_LIBS})
+ endif(ENABLE_DBUS)
+ 
+ add_library(libstrigidaemon STATIC ${strigidaemon_SRCS})
+

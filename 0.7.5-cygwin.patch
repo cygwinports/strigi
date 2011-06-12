@@ -1,0 +1,40 @@
+--- origsrc/strigi-0.7.5/libstreamanalyzer/lib/analyzerloader.cpp	2011-06-02 04:29:26.000000000 -0500
++++ src/strigi-0.7.5/libstreamanalyzer/lib/analyzerloader.cpp	2011-06-12 04:00:34.797126800 -0500
+@@ -112,12 +112,12 @@ AnalyzerLoader::loadPlugins(const char*
+         if ((strncmp(ent->d_name + iOffset, "strigita_", 9) == 0
+                 || strncmp(ent->d_name + iOffset, "strigiea_", 9) == 0
+                 || strncmp(ent->d_name + iOffset, "strigila_", 9) == 0)
+-#ifdef WIN32
++#if defined(WIN32) || defined(__CYGWIN__)
+                 && strcmp(ent->d_name+len-4, ".dll") == 0
+ # if defined(_MSC_VER)
+                 && strncmp(ent->d_name, "msvc_", 5) == 0) {
+ #elif defined(__CYGWIN__)
+-                && strncmp(ent->d_name, "cyg_", 4) == 0) {
++                ) {
+ # else
+                 && strncmp(ent->d_name, "mingw_", 6) == 0) {
+ # endif
+--- origsrc/strigi-0.7.5/libstreamanalyzer/lib/indexpluginloader.cpp	2011-06-02 04:29:26.000000000 -0500
++++ src/strigi-0.7.5/libstreamanalyzer/lib/indexpluginloader.cpp	2011-06-12 04:00:58.933568500 -0500
+@@ -182,7 +182,7 @@ IndexPluginLoader::loadPlugins(const cha
+     }
+     struct dirent* ent = readdir(dir);
+     string prefix("strigiindex_");
+-#ifdef WIN32
++#if defined(WIN32) || defined(__CYGWIN__)
+     string suffix(".dll");
+ #else
+     string suffix(".so");
+--- origsrc/strigi-0.7.5/strigidaemon/bin/daemon/strigithread.cpp	2011-04-23 06:55:09.000000000 -0500
++++ src/strigi-0.7.5/strigidaemon/bin/daemon/strigithread.cpp	2011-06-12 04:01:58.109271000 -0500
+@@ -30,7 +30,9 @@
+ #include <stdlib.h>
+ #include <unistd.h>
+ #include <sys/resource.h>
++#ifndef __CYGWIN__
+ #include <sys/syscall.h>
++#endif
+ 
+ // define two enums and a constant for use of ioprio
+ enum {
