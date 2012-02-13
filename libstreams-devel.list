@@ -10,5 +10,5 @@ usr/include/strigi/substreamproviderprovider.h
 usr/include/strigi/textutils.h
 usr/lib/libstreams.dll.a
 usr/lib/pkgconfig/libstreams.pc
-usr/lib/libstreams/LibStreamsConfig.cmake
+usr/lib/libstreams/
 usr/lib/strigi/StrigiConfig.cmake
