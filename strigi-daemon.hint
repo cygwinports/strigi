@@ -1,8 +1,0 @@
-category: Utils
-requires: libdbus1_3 libfam0 libgcc1 liblog4cxx10 libstdc++6 libstreamanalyzer0 libstreams0 libxml2
-external-source: strigi
-sdesc: "Desktop search engine (daemon)"
-ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 
-that can index data on your harddrive. Indexing operations are performed 
-without hammering your system, this makes Strigi the fastest and 
-smallest desktop searching program."

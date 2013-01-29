@@ -1,8 +1,0 @@
-category: Libs
-requires: libiconv libstdc++6-devel libstreams0
-external-source: strigi
-sdesc: "Strigi streams library (development)"
-ldesc: "Strigi is a daemon which uses a very fast and efficient crawler 
-that can index data on your harddrive. Indexing operations are performed 
-without hammering your system, this makes Strigi the fastest and 
-smallest desktop searching program."

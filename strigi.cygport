@@ -1,0 +1,88 @@
+inherit qt4-cmake
+
+NAME="strigi"
+VERSION=0.7.7
+RELEASE=2
+CATEGORY="KDE"
+SUMMARY="Desktop search engine"
+DESCRIPTION="Strigi is a daemon which uses a very fast and efficient crawler
+that can index data on your harddrive. Indexing operations are performed
+without hammering your system, this makes Strigi the fastest and smallest
+desktop searching program."
+HOMEPAGE="http://www.vandenoever.info/software/strigi/"
+SRC_URI="http://rdieter.fedorapeople.org/${PN}/${P}.tar.xz"
+
+PATCH_URI="
+	http://www.linuxfromscratch.org/patches/blfs/svn/strigi-0.7.7-ffmpeg_fix-1.patch
+	0.7.5-cygwin.patch
+	0.7.5-fPIC.patch
+	0.7.5-as-needed.patch
+	0.7.5-libs-install.patch
+"
+
+PKG_NAMES="${PN} ${PN}-client ${PN}-daemon libsearchclient0 libsearchclient-devel
+           libstreamanalyzer0 libstreamanalyzer-devel libstreams0 libstreams-devel
+           libstrigihtmlgui0 libstrigihtmlgui-devel
+           libstrigiqtdbusclient0 libstrigiqtdbusclient-devel"
+strigi_CONTENTS="usr/bin/deep* usr/bin/strigicmd.exe usr/share/doc/"
+strigi_client_SUMMARY="Desktop search engine (Qt4 client)"
+strigi_client_CONTENTS="usr/bin/strigiclient.exe"
+strigi_daemon_SUMMARY="Desktop search engine (daemon)"
+strigi_daemon_CONTENTS="usr/bin/*indexer.exe usr/bin/strigidaemon.exe usr/share/dbus-1/"
+libsearchclient0_SUMMARY="Strigi search client library (runtime)"
+libsearchclient0_CONTENTS="usr/bin/cygsearchclient-0.dll"
+libsearchclient_devel_SUMMARY="Strigi search client library (development)"
+libsearchclient_devel_CONTENTS="usr/include/strigi/async*
+                                usr/include/strigi/clientinterface.h
+                                usr/include/strigi/socketclient.h
+                                usr/lib/libsearchclient.*
+                                usr/lib/libsearchclient/LibSearchClientConfig.cmake"
+libstreamanalyzer0_SUMMARY="Strigi stream analyzer library (runtime)"
+libstreamanalyzer0_CONTENTS="usr/bin/cygstreamanalyzer-0.dll usr/lib/strigi/*.dll usr/share/strigi/"
+libstreamanalyzer_devel_SUMMARY="Strigi stream analyzer library (development)"
+libstreamanalyzer_devel_CONTENTS="usr/include/strigi/analysisresult.h
+	usr/include/strigi/analyzer* usr/include/strigi/classproperties.h
+	usr/include/strigi/diranalyzer.h usr/include/strigi/fieldproperties*.h
+	usr/include/strigi/fieldtypes.h usr/include/strigi/filelister.h
+	usr/include/strigi/index* usr/include/strigi/query*
+	usr/include/strigi/stream*analyzer* usr/include/strigi/strigi_thread.h
+	usr/include/strigi/variant.h usr/lib/libstreamanalyzer.dll.a
+	usr/lib/libstreamanalyzer/LibStreamAnalyzerConfig.cmake
+	usr/lib/pkgconfig/libstreamanalyzer.pc"
+libstreams0_SUMMARY="Strigi streams library (runtime)"
+libstreams0_CONTENTS="usr/bin/cygstreams-0.dll"
+libstreams_devel_SUMMARY="Strigi streams library (development)"
+libstreams_devel_CONTENTS="usr/include/strigi/*stream.h
+	usr/include/strigi/archivereader.h usr/include/strigi/inputstreamreader.h
+	usr/include/strigi/kmpsearcher.h usr/include/strigi/streambase.h
+	usr/include/strigi/streambuffer.h usr/include/strigi/strigiconfig.h
+	usr/include/strigi/substreamprovider.h usr/include/strigi/substreamproviderprovider.h
+	usr/include/strigi/textutils.h usr/lib/libstreams.dll.a
+	usr/lib/pkgconfig/libstreams.pc usr/lib/libstreams/
+	usr/lib/strigi/StrigiConfig.cmake"
+libstrigihtmlgui0_SUMMARY="Strigi HTML GUI library (runtime)"
+libstrigihtmlgui0_REQUIRES="strigi-daemon"
+libstrigihtmlgui0_CONTENTS="usr/bin/cygstrigihtmlgui-0.dll"
+libstrigihtmlgui_devel_SUMMARY="Strigi HTML GUI library (development)"
+libstrigihtmlgui_devel_CONTENTS="usr/include/strigi/strigihtmlgui.h
+                                 usr/lib/libstrigihtmlgui.*"
+libstrigiqtdbusclient0_SUMMARY="Strigi QtDBus client library (runtime)"
+libstrigiqtdbusclient0_REQUIRES="strigi-daemon"
+libstrigiqtdbusclient0_CONTENTS="usr/bin/cygstrigiqtdbusclient-0.dll"
+libstrigiqtdbusclient_devel_SUMMARY="Strigi QtDBus client library (development)"
+libstrigiqtdbusclient_devel_CONTENTS="usr/include/strigi/qtdbus/
+                                      usr/lib/libstrigiqtdbusclient.*"
+
+CYGCMAKE_ARGS="
+	-DENABLE_CLUCENE=YES
+	-DENABLE_DBUS=YES
+	-DENABLE_EXIV2=YES
+	-DENABLE_FAM=YES
+	-DENABLE_INOTIFY=NO
+	-DENABLE_LOG4CXX=YES
+	-DENABLE_QT4=YES
+	-DENABLE_REGENERATEXSD=NO
+	-DFORCE_DEPS=YES
+	-D__STRIGI_HAVE_GCC_VISIBILITY=NO
+	-DHAVE_WINDOWS_H=NO
+"
