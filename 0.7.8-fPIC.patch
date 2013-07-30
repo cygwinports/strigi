@@ -1,0 +1,36 @@
+--- origsrc/strigi-0.7.8/libstreamanalyzer/CMakeLists.txt	2013-02-05 15:34:52.000000000 -0600
++++ src/strigi-0.7.8/libstreamanalyzer/CMakeLists.txt	2013-07-30 15:32:20.006557800 -0500
+@@ -60,7 +60,7 @@ set(DATA_DESTINATION    "${CMAKE_INSTALL
+ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH  TRUE)
+ set(CMAKE_INSTALL_RPATH                ${LIB_DESTINATION} )
+ 
+-if(NOT WIN32 AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
++if(NOT WIN32 AND NOT CYGWIN AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
+   add_definitions(-fPIC)
+ endif()
+ 
+--- origsrc/strigi-0.7.8/libstreams/CMakeLists.txt	2013-02-05 15:34:57.000000000 -0600
++++ src/strigi-0.7.8/libstreams/CMakeLists.txt	2013-07-30 15:32:25.614878600 -0500
+@@ -37,7 +37,7 @@ set(INCLUDE_DESTINATION "${CMAKE_INSTALL
+ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH  TRUE)
+ set(CMAKE_INSTALL_RPATH ${LIB_DESTINATION})
+ 
+-if(NOT MSVC AND NOT MINGW AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
++if(NOT MSVC AND NOT CYGWIN AND NOT MINGW AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
+   add_definitions(-fPIC)
+ endif()
+ 
+--- origsrc/strigi-0.7.8/strigidaemon/CMakeLists.txt	2013-01-25 11:49:35.000000000 -0600
++++ src/strigi-0.7.8/strigidaemon/CMakeLists.txt	2013-07-30 15:32:38.400609900 -0500
+@@ -36,9 +36,9 @@ if(CMAKE_SYSTEM MATCHES "Linux")
+     set(ENABLE_INOTIFY ON)
+ endif(CMAKE_SYSTEM MATCHES "Linux")
+ 
+-if(NOT MSVC AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
++if(NOT MSVC AND NOT CYGWIN AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
+     add_definitions(-fPIC)
+-endif(NOT MSVC AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
++endif(NOT MSVC AND NOT CYGWIN AND NOT CMAKE_SYSTEM MATCHES "SunOS-5*.")
+ 
+ ##### environment inspection #####
+ 

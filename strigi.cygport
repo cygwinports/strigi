@@ -1,8 +1,8 @@
 inherit qt4-cmake
 
 NAME="strigi"
-VERSION=0.7.7
-RELEASE=2
+VERSION=0.7.8
+RELEASE=1
 CATEGORY="KDE"
 SUMMARY="Desktop search engine"
 DESCRIPTION="Strigi is a daemon which uses a very fast and efficient crawler
@@ -10,17 +10,16 @@ that can index data on your harddrive. Indexing operations are performed
 without hammering your system, this makes Strigi the fastest and smallest
 desktop searching program."
 HOMEPAGE="http://www.vandenoever.info/software/strigi/"
-SRC_URI="http://rdieter.fedorapeople.org/${PN}/${P}.tar.xz"
+SRC_URI="http://www.vandenoever.info/software/strigi/${NAME}-${VERSION}.tar.bz2"
 
 PATCH_URI="
-	http://www.linuxfromscratch.org/patches/blfs/svn/strigi-0.7.7-ffmpeg_fix-1.patch
 	0.7.5-cygwin.patch
-	0.7.5-fPIC.patch
+	0.7.8-fPIC.patch
 	0.7.5-as-needed.patch
 	0.7.5-libs-install.patch
 "
 
-PKG_NAMES="${PN} ${PN}-client ${PN}-daemon libsearchclient0 libsearchclient-devel
+PKG_NAMES="${NAME} ${NAME}-client ${NAME}-daemon libsearchclient0 libsearchclient-devel
            libstreamanalyzer0 libstreamanalyzer-devel libstreams0 libstreams-devel
            libstrigihtmlgui0 libstrigihtmlgui-devel
            libstrigiqtdbusclient0 libstrigiqtdbusclient-devel"
@@ -36,7 +35,7 @@ libsearchclient_devel_CONTENTS="usr/include/strigi/async*
                                 usr/include/strigi/clientinterface.h
                                 usr/include/strigi/socketclient.h
                                 usr/lib/libsearchclient.*
-                                usr/lib/libsearchclient/LibSearchClientConfig.cmake"
+                                usr/lib/cmake/LibSearchClient/"
 libstreamanalyzer0_SUMMARY="Strigi stream analyzer library (runtime)"
 libstreamanalyzer0_CONTENTS="usr/bin/cygstreamanalyzer-0.dll usr/lib/strigi/*.dll usr/share/strigi/"
 libstreamanalyzer_devel_SUMMARY="Strigi stream analyzer library (development)"
@@ -47,7 +46,7 @@ libstreamanalyzer_devel_CONTENTS="usr/include/strigi/analysisresult.h
 	usr/include/strigi/index* usr/include/strigi/query*
 	usr/include/strigi/stream*analyzer* usr/include/strigi/strigi_thread.h
 	usr/include/strigi/variant.h usr/lib/libstreamanalyzer.dll.a
-	usr/lib/libstreamanalyzer/LibStreamAnalyzerConfig.cmake
+	usr/lib/cmake/LibStreamAnalyzer/
 	usr/lib/pkgconfig/libstreamanalyzer.pc"
 libstreams0_SUMMARY="Strigi streams library (runtime)"
 libstreams0_CONTENTS="usr/bin/cygstreams-0.dll"
@@ -58,8 +57,7 @@ libstreams_devel_CONTENTS="usr/include/strigi/*stream.h
 	usr/include/strigi/streambuffer.h usr/include/strigi/strigiconfig.h
 	usr/include/strigi/substreamprovider.h usr/include/strigi/substreamproviderprovider.h
 	usr/include/strigi/textutils.h usr/lib/libstreams.dll.a
-	usr/lib/pkgconfig/libstreams.pc usr/lib/libstreams/
-	usr/lib/strigi/StrigiConfig.cmake"
+	usr/lib/pkgconfig/libstreams.pc usr/lib/cmake/LibStreams/ usr/lib/cmake/Strigi/"
 libstrigihtmlgui0_SUMMARY="Strigi HTML GUI library (runtime)"
 libstrigihtmlgui0_REQUIRES="strigi-daemon"
 libstrigihtmlgui0_CONTENTS="usr/bin/cygstrigihtmlgui-0.dll"

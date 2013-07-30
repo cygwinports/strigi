@@ -29,7 +29,7 @@
    add_subdirectory(dbus)
 -  set(strigidaemon_LIBS ${strigidaemon_LIBS} dbusserver)
 +  set(strigidaemon_LIBS dbusserver ${strigidaemon_LIBS})
- endif(ENABLE_DBUS)
+ endif()
  
  add_library(libstrigidaemon STATIC ${strigidaemon_SRCS})
 
