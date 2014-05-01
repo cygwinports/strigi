@@ -2,7 +2,7 @@ inherit qt4-cmake
 
 NAME="strigi"
 VERSION=0.7.8
-RELEASE=2
+RELEASE=3
 CATEGORY="KDE"
 SUMMARY="Desktop search engine"
 DESCRIPTION="Strigi is a daemon which uses a very fast and efficient crawler
