@@ -2,7 +2,7 @@ inherit qt4-cmake
 
 NAME="strigi"
 VERSION=0.7.8
-RELEASE=3
+RELEASE=4
 CATEGORY="KDE"
 SUMMARY="Desktop search engine"
 DESCRIPTION="Strigi is a daemon which uses a very fast and efficient crawler
@@ -17,6 +17,7 @@ PATCH_URI="
 	0.7.8-fPIC.patch
 	0.7.5-as-needed.patch
 	0.7.5-libs-install.patch
+	0.7.8-strcasecmp.patch
 "
 
 PKG_NAMES="${NAME} ${NAME}-client ${NAME}-daemon libsearchclient0 libsearchclient-devel
@@ -72,13 +73,14 @@ libstrigiqtdbusclient_devel_CONTENTS="usr/include/strigi/qtdbus/
                                       usr/lib/libstrigiqtdbusclient.*"
 
 CYGCMAKE_ARGS="
-	-DENABLE_CLUCENE=YES
+	-DENABLE_CLUCENE=NO
+	-DENABLE_CLUCENE_NG=NO
 	-DENABLE_DBUS=YES
 	-DENABLE_EXIV2=YES
 	-DENABLE_FAM=YES
 	-DENABLE_FFMPEG=NO
 	-DENABLE_INOTIFY=NO
-	-DENABLE_LOG4CXX=YES
+	-DENABLE_LOG4CXX=NO
 	-DENABLE_QT4=YES
 	-DENABLE_REGENERATEXSD=NO
 	-DFORCE_DEPS=YES
